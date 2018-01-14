@@ -7,7 +7,7 @@ RUN addgroup spring && \
 EXPOSE 8080
 
 COPY entrypoint.sh /opt/spring/entrypoint.sh
-COPY build/libs/fake-spring-*.jar /opt/spring/fake-spring.jar
+COPY build/libs/spring-jetty*.jar /opt/spring/spring-jetty.jar
 
 RUN chown -R spring:spring /opt/spring
 

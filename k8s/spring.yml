@@ -21,7 +21,7 @@ metadata:
 data:
   application.properties: |
     spring.main.banner-mode: off
-    management.port=8081
+    # management.port=8081
     management.context-path=/private
     management.security.enabled=false
 
@@ -48,6 +48,7 @@ spec:
       containers:
       - name: spring-jetty
         image: spring-jetty:latest
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
         env:
@@ -55,14 +56,14 @@ spec:
           value: >-
             -Xms768m
             -Xmx768m
-        readinessProbe:
-          periodSeconds: 10 # default
-          timeoutSeconds: 1 # default
-          failureThreshold: 3 # default
-          successThreshold: 1 # default
-          httpGet:
-            path: /private/health
-            port: 8081
+        # readinessProbe:
+        #   periodSeconds: 10 # default
+        #   timeoutSeconds: 1 # default
+        #   failureThreshold: 3 # default
+        #   successThreshold: 1 # default
+        #   httpGet:
+        #     path: /private/health
+        #     port: 8081
         resources:
           requests:
             memory: "1.5Gi"
@@ -73,6 +74,8 @@ spec:
           - name: config-volume
             mountPath: /opt/spring/application.properties
             subPath: application.properties
+          - name: app-tmp-volume
+            mountPath: /tmp
       volumes:
       - name: config-volume
         configMap:
