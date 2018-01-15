@@ -55,8 +55,11 @@ data:
         server_name  localhost;
 
         location / {
-            root   /usr/share/nginx/html;
-            index  index.html index.htm;
+            proxy_pass http://nginx-back;
+        }
+
+        location /status {
+            stub_status;
         }
 
         error_page   500 502 503 504  /50x.html;
@@ -96,7 +99,7 @@ spec:
           failureThreshold: 3 # default
           successThreshold: 1 # default
           httpGet:
-            path: /healthz
+            path: /status
             port: 80
         resources:
           requests:
