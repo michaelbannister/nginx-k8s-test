@@ -2,7 +2,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: front
+  name: nginx-front
   namespace: nginx-test
 spec:
   type: NodePort
