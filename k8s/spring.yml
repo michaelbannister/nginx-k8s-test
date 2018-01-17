@@ -47,8 +47,8 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
       - name: spring-jetty
-        image: spring-jetty:latest
-        imagePullPolicy: IfNotPresent
+        image: michaelbannister/spring-jetty:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         env:
