@@ -57,7 +57,7 @@ data:
             proxy_pass http://spring:8080;
         }
 
-        location /status {
+        location /nginx_status {
             stub_status;
         }
 
@@ -98,7 +98,7 @@ spec:
           failureThreshold: 3 # default
           successThreshold: 1 # default
           httpGet:
-            path: /status
+            path: /nginx_status
             port: 80
         resources:
           requests:
