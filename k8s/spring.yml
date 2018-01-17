@@ -52,6 +52,10 @@ spec:
         ports:
         - containerPort: 8080
         env:
+        - name: DELAY_MIN_MILLIS
+          value: "500"
+        - name: DELAY_MAX_MILLIS
+          value: "10000"
         - name: JVM_OPTS
           value: >-
             -Xms768m

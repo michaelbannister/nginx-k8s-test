@@ -25,6 +25,8 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web') {
 		exclude module: 'spring-boot-starter-tomcat'
 	}
+	compile 'org.apache.commons:commons-lang3:3.7'
+
 	//testCompile('org.springframework.boot:spring-boot-starter-test')
 
     compile 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.2.12', {
