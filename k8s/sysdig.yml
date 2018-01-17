@@ -4,6 +4,7 @@ apiVersion: extensions/v1beta1
 kind: DaemonSet
 metadata:
   name: sysdig-agent
+  namespace: default
   labels:
     app: sysdig-agent
 spec:
